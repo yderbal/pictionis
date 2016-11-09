@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "507331380871",
+    "firebase_url": "https://mypictionis.firebaseio.com",
+    "project_id": "mypictionis",
+    "storage_bucket": "mypictionis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507331380871:android:43536b43e6be6e30",
+        "android_client_info": {
+          "package_name": "com.dev.mypictionis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "507331380871-jk9np3cpqqqgd9tjumvou37go2ootvb7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dev.mypictionis",
+            "certificate_hash": "E8A1D5302E93AFE720B0B7C1CBC6F1D7E0A33902"
+          }
+        },
+        {
+          "client_id": "507331380871-rate4sgaceoeopslvv5citgbihvvdul6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAks61FO1fLZ1X9ga_Itar5cfm1wEqDlsQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "507331380871-rate4sgaceoeopslvv5citgbihvvdul6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

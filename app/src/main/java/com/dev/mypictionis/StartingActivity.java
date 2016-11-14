@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,7 +72,12 @@ public class StartingActivity extends AppCompatActivity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Toast.makeText(StartingActivity.this,"Authentication failed.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(StartingActivity.this,"Register failed.",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(StartingActivity.this, "User Successfully Registered.",
+                                    Toast.LENGTH_SHORT).show();
                         }
 
                         // ...
@@ -95,7 +101,11 @@ public class StartingActivity extends AppCompatActivity {
                             Toast.makeText(StartingActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
+                        else
+                        {
+                            Intent intent = new Intent(StartingActivity.this,MenuActivity.class);
+                            startActivity(intent);
+                        }
                         // ...
                     }
                 });
@@ -121,17 +131,15 @@ public class StartingActivity extends AppCompatActivity {
     public void signInUser(View view)
     {
         EditText editText = (EditText) findViewById(R.id.editText);
-        String username = editText.getText().toString();
+        String email= editText.getText().toString();
         editText = (EditText) findViewById(R.id.editText2);
         String password = editText.getText().toString();
-        if(username.equals("") || password.equals(""))
+        if(email.equals("") || password.equals(""))
         {
             Toast.makeText(StartingActivity.this,"Email or Password not filled",Toast.LENGTH_LONG).show();
             return;
         }
-        signin(username,password);
-        Intent intent = new Intent(this,MenuActivity.class);
-        startActivity(intent);
+        signin(email,password);
     }
 
     public void registerUser(View view)

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dev.mypictionis.com.dev.mypictionis.db.Database;
+
 public class MenuActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +20,12 @@ public class MenuActivity extends AppCompatActivity {
     {
         Toast.makeText(MenuActivity.this,"Gamestarted",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,GameActivity.class);
+        startActivity(intent);
+    }
+
+    public void checkDataBase(View view)
+    {
+        Intent intent = new Intent(this, Database.class);
         startActivity(intent);
     }
 }

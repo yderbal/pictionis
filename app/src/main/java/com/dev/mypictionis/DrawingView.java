@@ -40,7 +40,6 @@ public class DrawingView extends View {
 
     public DrawingView(Context context, AttributeSet attrs){
         super(context, attrs);
-        setupDrawing();
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("drawing");
         ref.addValueEventListener(new ValueEventListener() {
@@ -68,6 +67,7 @@ public class DrawingView extends View {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+        setupDrawing();
     }
 
     private void setupDrawing()

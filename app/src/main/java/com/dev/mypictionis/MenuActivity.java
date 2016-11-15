@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.dev.mypictionis.com.dev.mypictionis.db.Database;
-
 public class MenuActivity extends AppCompatActivity {
 
     @Override
@@ -25,7 +23,6 @@ public class MenuActivity extends AppCompatActivity {
 
     public void checkDataBase(View view)
     {
-        Intent intent = new Intent(this, Database.class);
-        startActivity(intent);
+        //startActivity(intent);
     }
 }

@@ -31,4 +31,9 @@ public class Message {
         json.put("author",author);
         return json;
     }
+
+    public String getMessage()
+    {
+        return message;
+    }
 }

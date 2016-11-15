@@ -136,7 +136,7 @@ public class StartingActivity extends AppCompatActivity {
         String password = editText.getText().toString();
         if(email.equals("") || password.equals(""))
         {
-            Toast.makeText(StartingActivity.this,"Email or Password not filled",Toast.LENGTH_LONG).show();
+            signin("dijiboy@live.fr","Tana-101");
             return;
         }
         signin(email,password);

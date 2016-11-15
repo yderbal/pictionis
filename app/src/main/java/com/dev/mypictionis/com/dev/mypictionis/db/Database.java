@@ -34,6 +34,8 @@ public class Database extends AppCompatActivity {
     TextView tv;
     EditText editText;
     Map<String,Message> messages ;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String email = user.getEmail();
 
     //childe listener
     ChildEventListener childListener ;
@@ -43,9 +45,6 @@ public class Database extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database);
-        //Firebase auth
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         tv = (TextView) findViewById(R.id.chat_message);
         editText = (EditText) findViewById(R.id.edit_message);
         ref.addValueEventListener(new ValueEventListener() {
@@ -66,7 +65,7 @@ public class Database extends AppCompatActivity {
                     s+= message.message+"\n";
                     idref++;
                 }
-                tv.setText(s);
+                tv.setText(email+" : "+s);
                 id = idref;
             }
             @Override

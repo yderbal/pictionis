@@ -36,38 +36,15 @@ public class DrawingView extends View {
     DatabaseReference ref;
     HashMap<String, DrawingObject> map = new HashMap<String,DrawingObject>();
     DrawingObject dwobj = new DrawingObject();
+    static int id = 0;
     int i=0;
 
     public DrawingView(Context context, AttributeSet attrs){
         super(context, attrs);
         database = FirebaseDatabase.getInstance();
-        ref = database.getReference("drawing");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> datas = dataSnapshot.getChildren();
-                Iterator<DataSnapshot> ite = datas.iterator();
-                Coordinates start = null;
-                while(ite.hasNext())
-                {
-                    DataSnapshot data = ite.next();
-                    DrawingObject value = data.getValue(DrawingObject.class);
-                    drawPath.moveTo(value.origin.x,value.origin.y);
-                    for(Coordinates c:value.points)
-                    {
-                        drawPath.lineTo(c.x,c.y);
-                    }
-                    drawCanvas.drawPath(drawPath,drawPaint);
-                    drawPath.reset();
-                }
-                invalidate();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+        ref = database.getReference("drawing"+id);
         setupDrawing();
+        //id++;
     }
 
     private void setupDrawing()

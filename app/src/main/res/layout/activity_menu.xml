@@ -28,5 +28,5 @@
         android:id="@+id/button5"
         android:layout_below="@+id/button4"
         android:layout_centerHorizontal="true"
-        android:onClick="checkDataBase" />
+        android:onClick="joinGame" />
 </RelativeLayout>

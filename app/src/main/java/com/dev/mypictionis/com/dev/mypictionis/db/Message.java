@@ -36,4 +36,9 @@ public class Message {
     {
         return message;
     }
+
+    public String getAuthor()
+    {
+        return author;
+    }
 }

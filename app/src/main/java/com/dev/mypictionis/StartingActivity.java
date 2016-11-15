@@ -140,6 +140,8 @@ public class StartingActivity extends AppCompatActivity {
             return;
         }
         signin(email,password);
+        //Intent intent = new Intent(StartingActivity.this,MenuActivity.class);
+        //startActivity(intent);
     }
 
     public void registerUser(View view)

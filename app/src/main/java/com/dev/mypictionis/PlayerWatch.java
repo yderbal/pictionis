@@ -2,10 +2,8 @@ package com.dev.mypictionis;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dev.mypictionis.com.dev.mypictionis.db.Message;
@@ -21,10 +19,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class GameActivity extends AppCompatActivity {
+public class PlayerWatch extends AppCompatActivity {
 
-    private LinearLayout paintLayout;
-    DrawingView drawingView;
+    PlayerView playerView;
 
     //chat init
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -33,19 +30,19 @@ public class GameActivity extends AppCompatActivity {
     EditText editText;
     Map<String,Message> messages ;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-    static int id =1;
+    int id=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
-        drawingView =(DrawingView) findViewById(R.id.draw_screen);
-        drawingView.setColor("#000000");
+        setContentView(R.layout.activity_player_watch);
+        playerView = (PlayerView) findViewById(R.id.player_draw_screen);
+        playerView.setId(0);
+        playerView.setColor("#000000");
 
         //chat init
-        tv = (TextView) findViewById(R.id.chat_message);
-        editText = (EditText) findViewById(R.id.edit_message);
+        tv = (TextView) findViewById(R.id.chat_message_player);
+        editText = (EditText) findViewById(R.id.edit_message_chat);
         chatRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -73,13 +70,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
     }
-
-
-    public void clearDraw(View view)
-    {
-        drawingView.clearDraw();
-    }
-
 
     public void sendMessage(View view)
     {

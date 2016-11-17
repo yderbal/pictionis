@@ -20,4 +20,11 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
     }
+
+    public void joinGame(View view)
+    {
+        Intent intent = new Intent(this,PlayerWatch.class);
+        intent.putExtra("GameId",0);
+        startActivity(intent);
+    }
 }
